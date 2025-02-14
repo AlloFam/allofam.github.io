@@ -7,8 +7,10 @@
 @theme {
   --color-*: initial;
   --color-teal: #255b64;
+  --color-teal-s75: #cfe3e7;
+  --color-teal-s50: #f3f8f9;
+  --color-teal-s500: #557178;
   --color-light-teal: #8bbac4;
-  --color-light-blue: #cfe3e7;
   --color-purple: #bfa8e4;
   --color-white: #ffffff;
 }
@@ -107,13 +109,27 @@ h2 {
 /*  Hero Triangles */
 .clip-triangle-tl {
   clip-path: polygon(0 0, 100% 0, 0 100%);
+  margin-top: -1px;
 }
 
 .clip-triangle-br {
   clip-path: polygon(100% 100%, 100% 0, 0 100%);
+  margin-right: -1px;
+  margin-bottom: -1px;
 }
 
 @font-face {
   font-family: "Rasa";
   src: local("Rasa-Bold"), url("./assets/fonts/Rasa-Bold.ttf");
+}
+
+/*  ---break--- */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
