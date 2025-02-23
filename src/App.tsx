@@ -8,7 +8,7 @@ import Footer from "./layout/Footer";
  */
 function App() {
   return (
-    <div className="flex flex-col h-screen w-7xl mx-auto items-center relative">
+    <div className="flex flex-col h-screen w-full lg:w-7xl mx-auto items-center relative">
       <Header />
       <main className="w-full mt-30">
         <Outlet />

@@ -1,9 +1,9 @@
 //  Icons
-import doctorImg from "../assets/icons/doctor.png";
-import chatImg from "../assets/icons/chat.png";
-import oralHealthImg from "../assets/icons/oral-health.png";
-import physiotherapistImg from "../assets/icons/physiotherapist.png";
-import speechTherapistImg from "../assets/icons/speech-therapist.png";
+import physiotherapistImg from "../assets/icons/services/physiotherapist.png";
+import oralHealthImg from "../assets/icons/services/dentist.png";
+import speechTherapistImg from "../assets/icons/services/occupational.png";
+import chatImg from "../assets/icons/services/speech.png";
+import doctorImg from "../assets/icons/services/pediatricians.png";
 
 interface ServiceCardProps {
   title: string;

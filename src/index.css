@@ -7,12 +7,14 @@
 @theme {
   --color-*: initial;
   --color-teal: #255b64;
+  --color-teal-s100: #9fc6ce;
   --color-teal-s75: #cfe3e7;
   --color-teal-s50: #f3f8f9;
   --color-teal-s500: #557178;
   --color-light-teal: #8bbac4;
   --color-purple: #bfa8e4;
   --color-white: #ffffff;
+  --color-gray: #e6e6e6;
 }
 
 :root {

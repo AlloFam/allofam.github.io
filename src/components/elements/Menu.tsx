@@ -1,22 +1,22 @@
-import { forwardRef, ElementRef, ComponentPropsWithoutRef } from "react";
+// import { forwardRef, ElementRef, ComponentPropsWithoutRef } from "react";
 
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
-  NavigationMenuContent,
+  // NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
+  // NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Link } from "react-router";
 // Store
-import { aboutUsMenu } from "@/store/aboutUsMenu";
+// import { aboutUsMenu } from "@/store/aboutUsMenu";
 
 const Menu = () => (
   <NavigationMenu>
     <NavigationMenuList>
-      <NavigationMenuItem>
+      {/* <NavigationMenuItem>
         <NavigationMenuTrigger className="text-teal font-bold">
           About Us
         </NavigationMenuTrigger>
@@ -75,31 +75,38 @@ const Menu = () => (
             Log In
           </NavigationMenuLink>
         </Link>
+      </NavigationMenuItem> */}
+      <NavigationMenuItem>
+        <Link to="/docs">
+          <NavigationMenuLink className="bg-teal font-bold text-white px-8 rounded-full ml-5">
+            Join the Waitlist
+          </NavigationMenuLink>
+        </Link>
       </NavigationMenuItem>
     </NavigationMenuList>
   </NavigationMenu>
 );
 
-const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
-  ({ className, title, children, ...props }, ref) => (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-);
+// const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
+//   ({ className, title, children, ...props }, ref) => (
+//     <li>
+//       <NavigationMenuLink asChild>
+//         <a
+//           ref={ref}
+//           className={cn(
+//             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+//             className
+//           )}
+//           {...props}
+//         >
+//           <div className="text-sm font-medium leading-none">{title}</div>
+//           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+//             {children}
+//           </p>
+//         </a>
+//       </NavigationMenuLink>
+//     </li>
+//   )
+// );
 
 export default Menu;

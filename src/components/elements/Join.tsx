@@ -20,9 +20,9 @@ const Join = () => {
   return (
     <form
       onSubmit={onsubmit}
-      className="flex flex-col items-center w-full py-5 px-20"
+      className="flex flex-col items-center w-full py-5 lg:px-20"
     >
-      <div className="grid grid-cols-2 gap-5 mb-15 w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-15 w-full">
         <fieldset className="col-span-1">
           <Label htmlFor="first" className="font-bold text-lg">
             First Name<sup>*</sup>
@@ -65,7 +65,7 @@ const Join = () => {
         className="bg-teal text-lg font-bold px-10 py-5"
         disabled={isLoading}
       >
-        Join Waitlist <SendHorizonal />
+        Join Waitlist <SendHorizonal className="hidden lg:block" />
       </Button>
     </form>
   );

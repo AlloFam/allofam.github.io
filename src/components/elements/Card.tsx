@@ -6,7 +6,7 @@ interface CardServiceProps {
 }
 
 const CardService = ({ title, src }: CardServiceProps) => (
-  <Card className="w-[300px] m-5 shadow-md">
+  <Card className="w-[300px] m-5 shadow-md shadow-teal">
     <CardContent className="py-5 flex justify-center">
       <img src={src} alt={title} className="w-[128px]" />
     </CardContent>
