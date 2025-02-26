@@ -15,6 +15,11 @@
   --color-purple: #bfa8e4;
   --color-white: #ffffff;
   --color-gray: #e6e6e6;
+  /* AlloFam Colors */
+  --color-p500: #17383d;
+  --color-p100: #81a0a5;
+  --color-b100: #f8f4ed;
+  --color-b500: #444444;
 }
 
 :root {
@@ -126,6 +131,6 @@ h2 {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-p500;
   }
 }

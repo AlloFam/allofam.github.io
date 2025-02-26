@@ -9,14 +9,18 @@ import {
   NavigationMenuList,
   // NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Link } from "react-router";
+import useScrollTo from "@/hooks/useScrollTo";
+// import { Link } from "react-router";
 // Store
 // import { aboutUsMenu } from "@/store/aboutUsMenu";
 
-const Menu = () => (
-  <NavigationMenu>
-    <NavigationMenuList>
-      {/* <NavigationMenuItem>
+const Menu = () => {
+  const scrollTo = useScrollTo();
+
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        {/* <NavigationMenuItem>
         <NavigationMenuTrigger className="text-teal font-bold">
           About Us
         </NavigationMenuTrigger>
@@ -76,16 +80,18 @@ const Menu = () => (
           </NavigationMenuLink>
         </Link>
       </NavigationMenuItem> */}
-      <NavigationMenuItem>
-        <Link to="/docs">
-          <NavigationMenuLink className="bg-teal font-bold text-white px-8 rounded-full ml-5">
-            Join the Waitlist
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            asChild
+            className="bg-teal font-bold text-white px-8 rounded-full ml-5 hover:bg-teal-s500 hover:text-white transition-all hover:cursor-pointer"
+          >
+            <a onClick={() => scrollTo("join")}>Join the Waitlist</a>
           </NavigationMenuLink>
-        </Link>
-      </NavigationMenuItem>
-    </NavigationMenuList>
-  </NavigationMenu>
-);
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+};
 
 // const ListItem = forwardRef<ElementRef<"a">, ComponentPropsWithoutRef<"a">>(
 //   ({ className, title, children, ...props }, ref) => (
