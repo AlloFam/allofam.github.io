@@ -26,3 +26,33 @@ export const socialLinks = [
     link: "",
   },
 ];
+
+export const internalLinks = [
+  {
+    to: "our-services",
+    text: "Our Services",
+  },
+  {
+    to: "resouces",
+    text: "Resouces",
+  },
+  {
+    to: "about-us",
+    text: "About Us",
+  },
+];
+
+export const legalLinks = [
+  {
+    to: "privacy-policy",
+    text: "Privacy Policy",
+  },
+  {
+    to: "terms-conditions",
+    text: "Terms & Conditions",
+  },
+  {
+    to: "cookie-policy",
+    text: "Cooklie Policy",
+  },
+];

@@ -6,6 +6,7 @@
 
 @theme {
   --color-*: initial;
+  /* AlloFam Colors */
   --color-teal: #255b64;
   --color-teal-s100: #9fc6ce;
   --color-teal-s75: #cfe3e7;
@@ -15,7 +16,6 @@
   --color-purple: #bfa8e4;
   --color-white: #ffffff;
   --color-gray: #e6e6e6;
-  /* AlloFam Colors */
   --color-p500: #17383d;
   --color-p100: #81a0a5;
   --color-b100: #f8f4ed;
