@@ -21,7 +21,6 @@ const Services = () => (
       and San Francisco, we navigate our network of resources to find exactly
       what your family needs to support your child's health.
     </p>
-
     <div className="flex justify-center lg:m-10 flex-wrap">
       {serviceCards.map(({ title, src }, idx) => (
         <CardService key={`card-${idx}`} title={title} src={src} />
@@ -31,7 +30,7 @@ const Services = () => (
       We are detailed in our approach to ensure that your values are reflected
       in the providers sourced:
     </p>
-    <div className="flex flex-col lg:flex-row flex-wrap gap-2 items-center justify-center my-5 lg:mx-20">
+    <div className="flex flex-col lg:flex-row flex-wrap gap-2 items-center justify-center my-5 lg:mx-10">
       {badgesArray.map((badge, index) => (
         <Badge
           key={index}
@@ -42,7 +41,7 @@ const Services = () => (
         </Badge>
       ))}
     </div>
-    <p className="text-teal">And More...</p>
+    <p className="text-teal font-bold">And More...</p>
     <p className="lg:mx-20 text-lg my-10 text-center">
       We understand how overwhelming it can be to search for the right
       healthcare provider.

@@ -20,6 +20,15 @@
   --color-p100: #81a0a5;
   --color-b100: #f8f4ed;
   --color-b500: #444444;
+  /* Purple Colors */
+  --color-purple: #c088ba;
+  --color-purple-s50: #f9f6fc;
+  --color-purple-s100: #75668b;
+  --color-purple-s200: #c088ba;
+  --color-purple-s500: #914788;
+  /*  Salmon Colors */
+  --color-salmon: #fe947d;
+  --color-salmon-s50: #ffdcd4;
 }
 
 :root {
@@ -105,6 +114,10 @@
 
 h1,
 h2 {
+  font-family: "Rasa", serif;
+}
+
+.rasa {
   font-family: "Rasa", serif;
 }
 /*  Hero Triangles */

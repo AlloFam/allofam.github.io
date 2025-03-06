@@ -135,7 +135,7 @@ const Join = () => {
           className="bg-teal font-bold text-white px-8 rounded-full ml-5 hover:bg-teal-s500 hover:text-white transition-all hover:cursor-pointer"
           disabled={isLoading}
         >
-          Join Waitlist <SendHorizonal className="hidden lg:block" />
+          Submit <SendHorizonal className="hidden lg:block" />
         </Button>
       </form>
     </section>

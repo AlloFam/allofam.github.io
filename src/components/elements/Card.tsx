@@ -11,7 +11,7 @@ const CardService = ({ title, src }: CardServiceProps) => (
       <img src={src} alt={title} className="w-[128px]" />
     </CardContent>
     <CardFooter className="flex justify-center bg-teal-s75 p-5 rounded-b-lg">
-      <p className="font-bold text-teal-s500">{title}</p>
+      <p className="font-bold text-teal-s500 text-xl">{title}</p>
     </CardFooter>
   </Card>
 );

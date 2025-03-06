@@ -1,5 +1,14 @@
 import logoSVG from "../../assets/logo.svg";
+import { Link } from "react-router";
 
-const Logo = () => <img src={logoSVG} alt="Logo" width={100} height={100} />;
+const Logo = () => (
+  <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+    <img
+      src={logoSVG}
+      alt="Logo"
+      className="w-[60px] h-[60px] lg:w-[100px] lg:h-[100px]"
+    />
+  </Link>
+);
 
 export default Logo;

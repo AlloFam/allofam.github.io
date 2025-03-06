@@ -1,4 +1,4 @@
-import { socialLinks, internalLinks, legalLinks } from "@/store/footerLinks";
+import { socialLinks, internalLinks } from "@/store/footerLinks";
 // logos
 import logoFooterE from "../assets/logo_footer_e.png";
 import logoFooter from "../assets/logo_footer_l.png";
@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-b100 w-full px-5 lg:px-10 py-10 text-white">
-      <div className="flex justify-between items-start flex-col lg:flex-row">
+      <div className="flex justify-between items-center lg:items-start flex-col lg:flex-row">
         <img
           src={logoFooter}
           alt="Allofam logo"
@@ -46,7 +46,10 @@ const Footer = () => {
                 <Link
                   key={`internal-link-${idx}`}
                   to={to}
-                  className="col-span-1"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="col-span-1 hover:underline"
                 >
                   {text}
                 </Link>
@@ -54,7 +57,7 @@ const Footer = () => {
               </>
             ))}
           </nav>
-          <nav className="flex gap-2 flex-wrap items-center justify-center m-5">
+          {/* <nav className="flex gap-2 flex-wrap items-center justify-center m-5">
             {legalLinks.map(({ text, to }: internalProps, idx) => (
               <>
                 <Link
@@ -67,7 +70,7 @@ const Footer = () => {
                 {idx !== internalLinks.length - 1 && <span>•</span>}
               </>
             ))}
-          </nav>
+          </nav> */}
         </section>
         <img
           src={logoFooterE}

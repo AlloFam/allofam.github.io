@@ -28,13 +28,13 @@ export const socialLinks = [
 ];
 
 export const internalLinks = [
+  // {
+  //   to: "our-services",
+  //   text: "Our Services",
+  // },
   {
-    to: "our-services",
-    text: "Our Services",
-  },
-  {
-    to: "resouces",
-    text: "Resouces",
+    to: "resources",
+    text: "Resources",
   },
   {
     to: "about-us",

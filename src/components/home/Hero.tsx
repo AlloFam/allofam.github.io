@@ -10,11 +10,11 @@ const Hero = () => {
           Stress-free pediatric healthcare provider search services.
         </h1>
         <p className="mt-5 text-2xl">
-          If you're struggling to find the right healthcare provider for your
+          If you’re struggling to find the right healthcare provider for your
           child, let Allofam work for you.
         </p>
       </section>
-      <div className="py-10 w-[560px] z-1 hidden lg:block">
+      <div className="lg:py-5 w-[560px] z-1 hidden lg:block">
         <img src={heroImg} alt="hero" className="w-full" />
       </div>
       <div className="absolute bottom-0 right-0 w-200 h-100 bg-white clip-triangle-br hidden lg:block"></div>

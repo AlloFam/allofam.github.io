@@ -10,86 +10,100 @@ import {
   // NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import useScrollTo from "@/hooks/useScrollTo";
-// import { Link } from "react-router";
+import { Link } from "react-router";
 // Store
 // import { aboutUsMenu } from "@/store/aboutUsMenu";
+import { useState } from "react";
+import { Menu as MenuIcon, X } from "lucide-react";
 
 const Menu = () => {
   const scrollTo = useScrollTo();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsOpen(false);
+  };
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        {/* <NavigationMenuItem>
-        <NavigationMenuTrigger className="text-teal font-bold">
-          About Us
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-            <li className="row-span-3">
-              <NavigationMenuLink asChild>
-                <a
-                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                  href="/"
-                >
-                  <div className="mb-2 mt-4 text-lg font-medium">AlloFam</div>
-                  <p className="text-sm leading-tight text-muted-foreground">
-                    Allofam makes it simple to source the best healthcare
-                    provider for your young child.
-                  </p>
-                </a>
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        className="lg:hidden text-teal"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+      </button>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-black/50 z-40 transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={handleClick}
+      >
+        <div
+          className={`absolute top-[100px] left-0 right-0 bg-white shadow-lg z-50 transition-transform duration-300 ${
+            isOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <div className="flex flex-col p-4 space-y-4">
+            <Link
+              to="/about-us"
+              className="text-teal font-bold hover:text-teal-s500"
+              onClick={handleClick}
+            >
+              About Us
+            </Link>
+            <Link
+              to="/resources"
+              className="text-teal font-bold hover:text-teal-s500"
+              onClick={handleClick}
+            >
+              Resources
+            </Link>
+            <button
+              onClick={() => {
+                scrollTo("join");
+                setIsOpen(false);
+              }}
+              className="bg-teal text-white px-6 py-2 rounded-full font-bold hover:bg-teal-s500 transition-all"
+            >
+              Join the Waitlist
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Menu */}
+      <NavigationMenu className="hidden lg:block">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <Link to="/about-us">
+              <NavigationMenuLink className="text-teal font-bold hover:text-teal-s500">
+                About Us
               </NavigationMenuLink>
-            </li>
-            <ListItem href="/our-mission" title="Our Mission">
-              Learn more about AlloFam, what we believe and who we serve.
-            </ListItem>
-            <ListItem href="/latest-posts" title="Latest Posts">
-              Stay up-to-date with our latest news and blog posts.
-            </ListItem>
-            <ListItem href="/faq" title="FAQ">
-              Frequently asked questions about AlloFam.
-            </ListItem>
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationMenuTrigger className="text-teal font-bold">
-          Services
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-            {aboutUsMenu.map(({ title, href, description }) => (
-              <ListItem key={`${title}-about-menu`} title={title} href={href}>
-                {description}
-              </ListItem>
-            ))}
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <Link to="/docs">
-          <NavigationMenuLink className="bg-teal font-bold text-white px-8 rounded-full ml-5">
-            Sign Up
-          </NavigationMenuLink>
-        </Link>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <Link to="/docs">
-          <NavigationMenuLink className="text-teal font-bold px-8 rounded-full border-teal border-2 ml-5 hover:bg-teal hover:text-white">
-            Log In
-          </NavigationMenuLink>
-        </Link>
-      </NavigationMenuItem> */}
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            asChild
-            className="bg-teal font-bold text-white px-8 rounded-full ml-5 hover:bg-teal-s500 hover:text-white transition-all hover:cursor-pointer"
-          >
-            <a onClick={() => scrollTo("join")}>Join the Waitlist</a>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link to="/resources">
+              <NavigationMenuLink className="text-teal font-bold hover:text-teal-s500">
+                Resources
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className="bg-teal font-bold text-white px-8 rounded-full ml-5 hover:bg-teal-s500 hover:text-white transition-all hover:cursor-pointer"
+            >
+              <a onClick={() => scrollTo("join")}>Join the Waitlist</a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </>
   );
 };
 
