@@ -98,7 +98,9 @@ const Menu = () => {
               asChild
               className="bg-teal font-bold text-white px-8 rounded-full ml-5 hover:bg-teal-s500 hover:text-white transition-all hover:cursor-pointer"
             >
-              <a onClick={() => scrollTo("join")}>Join the Waitlist</a>
+              <Link to="/" onClick={() => scrollTo("join")}>
+                Join the Waitlist
+              </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
