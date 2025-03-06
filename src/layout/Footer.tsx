@@ -4,6 +4,7 @@ import logoFooterE from "../assets/logo_footer_e.png";
 import logoFooter from "../assets/logo_footer_l.png";
 // Components
 import { Link } from "react-router";
+import { Fragment } from "react";
 
 interface socialProps {
   alt: string;
@@ -42,9 +43,8 @@ const Footer = () => {
           </div>
           <nav className="flex gap-2 flex-wrap items-center justify-center m-5">
             {internalLinks.map(({ text, to }: internalProps, idx) => (
-              <>
+              <Fragment key={`internal-link-${idx}`}>
                 <Link
-                  key={`internal-link-${idx}`}
                   to={to}
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -54,7 +54,7 @@ const Footer = () => {
                   {text}
                 </Link>
                 {idx !== internalLinks.length - 1 && <span>•</span>}
-              </>
+              </Fragment>
             ))}
           </nav>
           {/* <nav className="flex gap-2 flex-wrap items-center justify-center m-5">

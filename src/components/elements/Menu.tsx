@@ -9,7 +9,6 @@ import {
   NavigationMenuList,
   // NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import useScrollTo from "@/hooks/useScrollTo";
 import { Link } from "react-router";
 // Store
 // import { aboutUsMenu } from "@/store/aboutUsMenu";
@@ -17,14 +16,7 @@ import { useState } from "react";
 import { Menu as MenuIcon, X } from "lucide-react";
 
 const Menu = () => {
-  const scrollTo = useScrollTo();
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setIsOpen(false);
-  };
 
   return (
     <>
@@ -41,7 +33,7 @@ const Menu = () => {
         className={`lg:hidden fixed top-0 left-0 right-0 bottom-0 bg-black/50 z-40 transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        onClick={handleClick}
+        onClick={() => setIsOpen(false)}
       >
         <div
           className={`absolute top-[60px] left-0 right-0 bg-white shadow-lg z-50 transition-transform duration-300 ${
@@ -52,26 +44,26 @@ const Menu = () => {
             <Link
               to="/about-us"
               className="text-teal font-bold hover:text-teal-s500"
-              onClick={handleClick}
+              onClick={() => setIsOpen(false)}
             >
               About Us
             </Link>
             <Link
               to="/resources"
               className="text-teal font-bold hover:text-teal-s500"
-              onClick={handleClick}
+              onClick={() => setIsOpen(false)}
             >
               Resources
             </Link>
-            <button
+            <a
+              href="#join"
               onClick={() => {
-                scrollTo("join");
                 setIsOpen(false);
               }}
               className="bg-teal text-white px-6 py-2 rounded-full font-bold hover:bg-teal-s500 transition-all"
             >
               Join the Waitlist
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -80,27 +72,27 @@ const Menu = () => {
       <NavigationMenu className="hidden lg:block">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link to="/about-us">
-              <NavigationMenuLink className="text-teal font-bold hover:text-teal-s500">
-                About Us
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              asChild
+              className="text-teal font-bold hover:text-teal-s500"
+            >
+              <Link to="/about-us">About Us</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link to="/resources">
-              <NavigationMenuLink className="text-teal font-bold hover:text-teal-s500">
-                Resources
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink
+              asChild
+              className="text-teal font-bold hover:text-teal-s500"
+            >
+              <Link to="/resources">Resources</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink
               asChild
               className="bg-teal font-bold text-white px-8 rounded-full ml-5 hover:bg-teal-s500 hover:text-white transition-all hover:cursor-pointer"
             >
-              <Link to="/" onClick={() => scrollTo("join")}>
-                Join the Waitlist
-              </Link>
+              <Link to="/#join">Join the Waitlist</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
