@@ -44,7 +44,7 @@ const Menu = () => {
         onClick={handleClick}
       >
         <div
-          className={`absolute top-[100px] left-0 right-0 bg-white shadow-lg z-50 transition-transform duration-300 ${
+          className={`absolute top-[60px] left-0 right-0 bg-white shadow-lg z-50 transition-transform duration-300 ${
             isOpen ? "translate-y-0" : "-translate-y-full"
           }`}
         >

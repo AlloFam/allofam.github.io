@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen w-full lg:w-7xl mx-auto items-center relativ">
       <Header />
-      <main className="w-full mt-30">
+      <main className="w-full mt-[60px] lg:mt-[116px]">
         <Outlet />
       </main>
       <Footer />
