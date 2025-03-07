@@ -26,27 +26,18 @@ const Join = () => {
     const formData = Object.fromEntries(data);
 
     try {
-      const response = await fetch(
-        `https://us21.api.mailchimp.com/3.0/lists/${
-          import.meta.env.VITE_MAILCHIMP_AUDIENCE_ID
-        }/members`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `apikey ${import.meta.env.VITE_MAILCHIMP_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email_address: formData.email,
-            status: "subscribed",
-            merge_fields: {
-              FNAME: formData.first,
-              LNAME: formData.last,
-              ZIP: formData.zip,
-            },
-          }),
-        }
-      );
+      const response = await fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          first: formData.first,
+          last: formData.last,
+          zip: formData.zip,
+        }),
+      });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");

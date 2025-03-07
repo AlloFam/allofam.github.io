@@ -17,3 +17,11 @@
   to = "/index.html"
   status = 200
   force = false
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[build]
+  command = "npm run build"
+  publish = "dist"
