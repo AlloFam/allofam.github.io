@@ -33,7 +33,7 @@ const handler: Handler = async (event) => {
       };
     }
 
-    await mailchimp.lists.addListMember(MAILCHIMP_AUDIENCE_ID, {
+    await mailchimp.lists.addListMember(MAILCHIMP_AUDIENCE_ID as string, {
       email_address: email,
       status: "subscribed",
       merge_fields: {
@@ -48,13 +48,10 @@ const handler: Handler = async (event) => {
       body: JSON.stringify({ message: "Successfully subscribed!" }),
     };
   } catch (error) {
-    console.error("Mailchimp error:", error);
-
+    console.error("Mailchimp error details:", JSON.stringify(error, null, 2));
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        error: error.response?.text || "Failed to subscribe",
-      }),
+      body: JSON.stringify({ error: error.message || "Failed to subscribe" }),
     };
   }
 };
