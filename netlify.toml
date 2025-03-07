@@ -1,4 +1,4 @@
-# Redirect all HTTP traffic to HTTPS and enforce 'www'
+# Redirect all HTTP traffic to HTTPS (both www and non-www)
 [[redirects]]
   from = "http://allofam.com/*"
   to = "https://www.allofam.com/:splat"
@@ -11,25 +11,17 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "https://allofam.com/*"
-  to = "https://www.allofam.com/:splat"
-  status = 301
-  force = true
-
-# Ensure SPA (Single Page Application) routing works
+# Ensure your existing redirect to index.html works for your SPA (Single Page App)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
-# Functions Configuration
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# Build Settings
 [build]
   command = "rm -rf node_modules package-lock.json && npm install && npm run build"
   publish = "dist"
-  functions = "netlify/functions"
