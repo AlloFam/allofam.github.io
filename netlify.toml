@@ -1,18 +1,4 @@
 [[redirects]]
-  from = "/about-us"
-  to = "/about-us"
-  status = 200
-
-[[redirects]]
-  from = "/resources"
-  to = "/resources"
-  status = 200
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[build]
-  command = "npm run build"
-  publish = "dist" 
