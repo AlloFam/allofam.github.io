@@ -30,6 +30,6 @@
 
 # Build Settings
 [build]
-  command = "npm install && npm run build"
+  command = "rm -rf node_modules package-lock.json && npm install && npm run build"
   publish = "dist"
   functions = "netlify/functions"
