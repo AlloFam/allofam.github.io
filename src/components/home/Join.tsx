@@ -5,6 +5,12 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import Notification from "../shared/Notification";
+import mailchimp from "@mailchimp/mailchimp_marketing";
+
+mailchimp.setConfig({
+  apiKey: import.meta.env.VITE_MAILCHIMP_API_KEY,
+  server: "us21",
+});
 
 /**
  * Join component
@@ -26,22 +32,18 @@ const Join = () => {
     const formData = Object.fromEntries(data);
 
     try {
-      const response = await fetch("/.netlify/functions/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          first: formData.first,
-          last: formData.last,
-          zip: formData.zip,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+      await mailchimp.lists.addListMember(
+        import.meta.env.VITE_MAILCHIMP_AUDIENCE_ID!,
+        {
+          email_address: formData.email as string,
+          status: "subscribed",
+          merge_fields: {
+            FNAME: formData.first,
+            LNAME: formData.last,
+            ZIP: formData.zip,
+          },
+        }
+      );
 
       (target as HTMLFormElement).reset();
       setSuccessMessage(
