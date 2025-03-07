@@ -6,7 +6,6 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   const { pathname, hash } = location;
 
   useEffect(() => {
-    console.log(location);
     if (hash) {
       const [, anchor] = hash.split("#");
       const element = document.getElementById(anchor);
@@ -17,7 +16,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return <main className="w-full mt-[60px] lg:mt-[116px]">{children}</main>;
 };
