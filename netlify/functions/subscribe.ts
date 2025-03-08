@@ -40,6 +40,10 @@ const handler: Handler = async (event) => {
         FNAME: first || "",
         LNAME: last || "",
         ZIP: zip || "",
+        EMAIL: email,
+        ADDRESS: {
+          zip: zip || "",
+        },
       },
     });
 
