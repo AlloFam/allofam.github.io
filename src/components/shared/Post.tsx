@@ -8,20 +8,27 @@ import {
 } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
 
-interface BlogProps {
+export interface PostProps {
   title: string;
   description: string;
-  image: string;
+  thumbnail: string;
   link: string;
 }
 
-const Post = ({ title, description, image, link }: BlogProps) => {
+const Post = ({ title, description, thumbnail, link }: PostProps) => {
+  const firstImage = description?.match(/<img[^>]+src="([^">]+)"/);
+  const firstParagraph = description
+    ?.split("<p>")[1]
+    ?.split("</p>")[0]
+    ?.substring(0, 100)
+    .concat("...");
+
   return (
     <Card className="w-full h-full flex flex-col">
       <CardHeader className="p-0">
         <CardTitle>
           <img
-            src={image}
+            src={firstImage?.[1] || thumbnail}
             alt={title}
             className="w-full h-[200px] object-cover rounded-t-lg"
           />
@@ -37,7 +44,10 @@ const Post = ({ title, description, image, link }: BlogProps) => {
       <CardContent className="flex-grow">
         <h3 className="text-center text-2xl font-bold rasa">{title}</h3>
         <br />
-        <p className="text-center">{description}</p>
+        <p
+          className="text-center"
+          dangerouslySetInnerHTML={{ __html: firstParagraph }}
+        />
       </CardContent>
       <CardFooter>
         <a
