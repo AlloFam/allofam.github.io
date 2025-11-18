@@ -3,13 +3,13 @@ import Post, { PostProps } from "../shared/Post";
 import { useEffect, useState } from "react";
 import { blogPosts } from "@/store/blog";
 
+const mediumUrl = "https://medium.com/feed/@allofam";
+
 const Blog = () => {
   const [latestPosts, setLatestPosts] = useState<PostProps[]>([]);
 
   useEffect(() => {
-    fetch(
-      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@heidi_49358"
-    )
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${mediumUrl}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.items) {
@@ -32,7 +32,7 @@ const Blog = () => {
         ))}
       </div>
       <a
-        href="https://medium.com/@heidi_49358"
+        href={mediumUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="flex justify-center items-center px-5 py-2 rounded-lg gap-2 w-full text-light-teal hover:bg-gray hover:text-teal transition-all mt-10 text-lg font-bold border-2 border-light-teal"
